@@ -11,10 +11,10 @@ function App() {
     <div className="App container w-50">
       <DropDown />
       <Routes>
-        {/* <Route path='/' element={<DropDown />} /> */}
+        <Route path='/' element={<h1>Welcome!</h1>} />
         <Route path='/people/:peopleID' element={<People />} />
         <Route path='/planets/:planetID' element={<Planets />} />
-        <Route path='*' element={<NotFound/>}/>
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );
