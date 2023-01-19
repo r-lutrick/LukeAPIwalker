@@ -14,7 +14,7 @@ const Planets = () => {
             .catch((err) => {
                 console.log(err)
             })
-    },[])
+    },[planetID])
 
     return (
         <div className="container text-start">

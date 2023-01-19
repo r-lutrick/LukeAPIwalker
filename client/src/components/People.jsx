@@ -13,24 +13,25 @@ const People = () => {
             .then((res) => {
                 setPeople(res.data);
                 return axios.get(`${people.homeworld}`)
-                .then((res) => {
-                    setHomeworld({
-                        'id': res.data.url,
-                        'name': res.data.name
+                    .then((res) => {
+                        setHomeworld({
+                            'id': res.data.url,
+                            'name': res.data.name
+                        })
+                        setLoading(false)
                     })
-                    setLoading(false)
-                })
-                .catch((err) => {
-                    console.log('error', err)
-                })
+                    .catch((err) => {
+                        console.log('error', err)
+                    })
             })
             .catch((err) => {
                 console.log('error', err)
             })
-    },[])
+    }, [peopleID, people.homeworld])
+
     // wait for nested api call to finish then create format string variable
     let planetID = ""
-    if (!loading){
+    if (!loading) {
         planetID = homeworld.id
         planetID = planetID.split('/')[5]
     }
